@@ -2,8 +2,16 @@
 
 const logoChange = document.querySelector('.logo-heading');
 
-logoChange.addEventListener('wheel', () => {
-    
+logoChange.addEventListener('mousedown', () => {
+    logoChange.style.transform = "scale(1.1)";
+    logoChange.style.transition = "transform 1s";
+    logoChange.style.color = "rebeccapurple";
+});
+
+logoChange.addEventListener('mouseup', () => {
+    logoChange.style.transform = "scale(1)";
+    logoChange.style.transition = "transform 1s";
+    logoChange.style.color = "black";
 });
 
 const navChange = document.querySelectorAll('.nav-link').forEach(el => {
@@ -51,3 +59,33 @@ bottomImg.addEventListener('dblclick', () => {
     bottomImg.style.transition = "transform 1s";
 });
 
+const bodyChange = document.querySelector('body');
+
+window.addEventListener('resize', () => {
+    bodyChange.style.backgroundColor = 'coral';
+});
+
+window.addEventListener('scroll', () => {
+    bodyChange.style.backgroundColor = "lightgrey";
+});
+
+
+//Propagation -------------------------------------------------------
+
+const welcomeSection = document.querySelector('.intro');
+welcomeSection.addEventListener('click', () => {
+    welcomeSection.style.backgroundColor = 'seagreen';
+});
+
+const welcomePara = document.querySelector('.intro p');
+welcomePara.addEventListener('click', (event) => {
+    welcomePara.style.backgroundColor = 'rebeccapurple';
+    event.stopPropagation();
+});
+
+//Prevent Default------------------------------------------------
+
+const stopRefresh = document.querySelector ('.nav-link');
+stopRefresh.addEventListener('click', (event) => {
+    event.preventDefault();
+});
