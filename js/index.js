@@ -89,3 +89,15 @@ const stopRefresh = document.querySelector ('.nav-link');
 stopRefresh.addEventListener('click', (event) => {
     event.preventDefault();
 });
+
+//stretch animations---------------------------------
+
+document.querySelectorAll('.btn').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        gsap.to(el, {
+            duration: 2,
+            rotateX: 360,
+            ease: "elastic(1, 0.75)"
+        }).restart();
+    })
+})
